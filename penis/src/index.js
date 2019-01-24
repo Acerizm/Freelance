@@ -5,8 +5,16 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Style, Container} from "./css/penis.jsx";
 import Jisoo from "./photo/Jisoo.jpg";
+import {About} from "./about.js"
+import
+{
+    BrowserRouter as Router,
+    Link,
+    Switch,
+    Route
+} from "react-router-dom"
 
-const Element = () => {
+const Home = () => {
   return (
     <div>
         <div style={{...Container,zIndex: "2"}}>
@@ -14,7 +22,7 @@ const Element = () => {
           Home
           </div>
           <div style={{...Style}}>
-          About
+          <Link to={"/About"} > About </Link>
           </div>
           <div style={{...Style}}>
           Contact
@@ -30,7 +38,18 @@ const Element = () => {
   )
 }
 
-ReactDOM.render(<Element/>  , document.getElementById('root'));
+const Stacia = () => {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path = {"/"} component = {Home}/>
+        <Route exact path = {"/About"} component = {About}/>
+      </Switch>
+    </Router>
+  )
+}
+
+ReactDOM.render(<Stacia/>  , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
